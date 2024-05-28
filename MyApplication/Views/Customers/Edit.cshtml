@@ -1,0 +1,85 @@
+﻿@model MyApplication.ViewModels.Customers.EditVM
+@{
+}
+
+<h2> Edit Customer</h2>
+
+<form id="editCustomerForm" action="/Customers/Edit" method="post">
+    <div>
+        <div class="grid">
+            @Html.HiddenFor(m => m.Customer.Id)
+            @Html.HiddenFor(m => m.Customer.RegisteredOn)
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Customer.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Customer.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Customer.FirstName)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Customer.UserName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Customer.UserName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Customer.UserName)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Customer.Address)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Customer.Address)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Customer.Address)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Customer.Balance)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Customer.Balance)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Customer.Balance)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Customer.DiscountAccount)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.Customer.DiscountAccount)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Customer.DiscountAccount)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-3">
+                    @Html.ValidationMessage("summaryError")
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <input type="submit" class="right" value="Save" />
+                    <a href="/Customers/Index" class="right">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

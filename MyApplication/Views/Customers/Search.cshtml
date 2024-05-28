@@ -1,0 +1,84 @@
+﻿@model MyApplication.ViewModels.Customers.SearchVM
+@{
+}
+
+<h4>Customers</h4>
+
+<table class="table">
+    <tr>
+        <th >
+            First name
+        </th>
+        <th >
+            User name
+        </th>
+        <th >
+            Address
+        </th>
+        <th >
+            Balance
+        </th>
+        <th >
+            Discount Account
+        </th>
+        <th >
+            Total orders
+        </th>
+        <th >
+            Date Of Registration
+        </th>
+        <th  colspan="2">
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Customers)
+    {
+        <tr>
+            <td >
+                @item.FirstName
+            </td>
+            <td >
+                @item.UserName
+            </td>
+            <td >
+                @item.Address
+            </td>
+            <td >
+                @item.Balance
+            </td>
+            <td >
+                @item.DiscountAccount
+            </td>
+            <td >
+                @item.TotalOrders
+            </td>
+            <td >
+                @item.RegisteredOn
+            </td>
+
+            <td >
+                <a href="/Customers/Edit?id=@item.Id" class="text-primary">Edit</a>
+            </td>
+
+            <td >
+                <a href="/Customers/Delete?id=@item.Id" class="text-danger" method="delete" onclick="return confirm('Delete Customer?');">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="d-flex justify-center">
+    <a href="/Customers/Add">Add +</a>
+</div>
+
+<h4>Search</h4>
+
+<div class="search-container">
+    <form id="searchForm" action="/Customers/Search" method="post">
+        <input type="text" id="firstName" placeholder="Search.." name="firstName">
+        <button type="submit">Search</button>
+        <a href="/Customers/Index">Reset</a>
+    </form>
+</div>

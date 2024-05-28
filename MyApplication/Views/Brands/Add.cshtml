@@ -1,0 +1,83 @@
+﻿@model MyApplication.ViewModels.Brands.AddVM
+@{
+}
+
+<h2> Add Brand</h2>
+
+<form id="addBrandForm" action="/Brands/Add" method="post">
+    <div>
+        <div class="grid">
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.BrandName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.PhoneNumber)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.BrandName)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.PhoneNumber)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.PhoneNumber)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.PhoneNumber)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.EmailAddress)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.EmailAddress)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.EmailAddress)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.DiscountPercent)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.DiscountPercent)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.DiscountPercent)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.AllowsReturns)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.AllowsReturns)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.AllowsReturns)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-3">
+                    @Html.ValidationMessage("summaryError")
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <input type="submit" class="right" value="Save" />
+                    <a href="/Brands/Index" class="right">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

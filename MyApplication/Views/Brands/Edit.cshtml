@@ -1,0 +1,85 @@
+﻿@model MyApplication.ViewModels.Brands.EditVM
+@{
+}
+
+<h2> Edit Brand</h2>
+
+<form id="editBrandForm" action="/Brands/Edit" method="post">
+    <div>
+        <div class="grid">
+            @Html.HiddenFor(m => m.Brand.Id)
+            @Html.HiddenFor(m => m.Brand.RegisteredOn)
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Brand.BrandName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Brand.BrandName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Brand.BrandName)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Brand.PhoneNumber)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Brand.PhoneNumber)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Brand.PhoneNumber)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Brand.EmailAddress)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Brand.EmailAddress)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Brand.EmailAddress)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Brand.DiscountPercent)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Brand.DiscountPercent)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Brand.DiscountPercent)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Brand.AllowsReturns)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.Brand.AllowsReturns)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Brand.AllowsReturns)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-3">
+                    @Html.ValidationMessage("summaryError")
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <input type="submit" class="right" value="Save" />
+                    <a href="/Brands/Index" class="right">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

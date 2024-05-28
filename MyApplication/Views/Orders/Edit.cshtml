@@ -1,0 +1,83 @@
+﻿@using MyApplication.ViewModels.Orders
+@model EditVM
+@{
+}
+
+<h2> Edit Order</h2>
+
+<form action="/Orders/Edit" method="post">
+    <div>
+        <div class="grid">
+            @Html.HiddenFor(m => m.Order.Id)
+            @Html.HiddenFor(m => m.Order.PlacedOn)
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Details)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Order.Details)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.Details)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Total)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Order.Total)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.Total)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.HasDiscount)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.Order.HasDiscount)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.HasDiscount)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Customer_ID)
+                </div>
+                <div class="col-2">
+                    <select id="Customer_ID" name="Customer_ID">
+                        @Html.Raw(ViewBag.CustomerOptions)
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Brand_ID)
+                </div>
+                <div class="col-2">
+                    <select id="Brand_ID" name="Brand_ID">
+                        @Html.Raw(ViewBag.BrandOptions)
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="row mb-2">
+                    <div class="col-3">
+                        @Html.ValidationMessage("summaryError")
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <input type="submit" class="right" value="Save" />
+                        <a href="/Orders/Index" class="right">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form> 

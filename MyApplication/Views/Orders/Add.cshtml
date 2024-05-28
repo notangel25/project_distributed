@@ -1,0 +1,87 @@
+﻿@using MyApplication.ViewModels.Orders
+@model AddVM
+@{
+}
+
+<h2> Add Order</h2>
+
+<form action="/Orders/Add" method="post">
+    <div>
+        <div class="grid">
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Details)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Details)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Details)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Total)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Total)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Total)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.HasDiscount)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.HasDiscount)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.HasDiscount)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Customer_ID)
+                </div>
+                <div class="col-2">
+                    <select id="Customer_ID" name="Customer_ID">
+                        @foreach (var customer in Model.Customers)
+                        {
+                            <option value="@customer.Id">@customer.FirstName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Brand_ID)
+                </div>
+                <div class="col-2">
+                    <select id="Brand_ID" name="Brand_ID">
+                        @foreach (var brand in Model.Brands)
+                        {
+                            <option value="@brand.Id">@brand.BrandName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="row mb-2">
+                    <div class="col-3">
+                        @Html.ValidationMessage("summaryError")
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <input type="submit" class="right" value="Save" />
+                        <a href="/Orders/Index" class="right">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form> 

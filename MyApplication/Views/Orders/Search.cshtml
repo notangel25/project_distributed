@@ -1,0 +1,82 @@
+﻿@model MyApplication.ViewModels.Orders.SearchVM
+@{
+}
+
+<h2>Orders</h2>
+
+<table class="table">
+
+    <tr>
+        <th >
+            Details
+        </th>
+        <th >
+            Customer
+        </th>
+        <th >
+            Brand
+        </th>
+        <th >
+            Placed On
+        </th>
+        <th >
+            Has Discount
+        </th>
+        <th >
+            Total (BGN)
+        </th>
+        <th  colspan="2">
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Orders)
+    {
+        <tr>
+            <td >
+                @item.Details
+            </td>
+            <td >
+                @item?.Customer?.FirstName @item?.Customer?.UserName
+            </td>
+            <td >
+                @item?.Brand?.BrandName @item?.Brand?.PhoneNumber
+            </td>
+            <td >
+                @item?.PlacedOn
+            </td>
+            @if (item.HasDiscount)
+            {
+                <td >Yes</td>
+            }
+            else
+            {
+                <td >No</td>
+            }
+            <td >
+                @item?.Total
+            </td>
+            <td >
+                <a href="/Orders/Edit?id=@item.Id" class="text-primary">Edit</a>
+            </td>
+            <td >
+                <a href="/Orders/Delete?id=@item.Id" class="text-danger" method="delete" onclick="return confirm('Delete Order?');">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="d-flex justify-center">
+    <a href="/Orders/Add">Add +</a>
+</div>
+
+<h4>Search</h4>
+
+<div class="search-container">
+    <form id="searchForm" action="/Orders/Search" method="post">
+        <input type="text" id="details" placeholder="Search.." name="details">
+        <button type="submit">Search</button>
+        <a href="/Orders/Index">Reset</a>
+    </form>
+</div>
